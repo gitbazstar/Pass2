@@ -29,6 +29,37 @@ app.listen(3000, () => {
 
 
 app.get("/", (req, res) => {
-  res.send("hello gittttttttt");
+  res.send("hello gittttttttttttttt");
 });
+//////////////////////////
+
+app.get("/ip", (req, res) => {
+
+  url_redirect = "https://chabokan.net/ip/"
+
+  fetch(url_redirect)
+    .then(res => {
+      if (res.ok) {
+        return res.json()
+      }
+      else return
+    })
+    .then((data) => {
+      res.send(data);
+      console.log(data.saleProjects)
+    })
+    .catch(err => {
+      res.send({ error: " آیپی خطا" })
+      console.log(err)
+    })
+
+});
+
+///////////
+//////////////////////////
+
+app.get("/date", (req, res) => {
+  res.send(new Date())
+});
+///////////
 
